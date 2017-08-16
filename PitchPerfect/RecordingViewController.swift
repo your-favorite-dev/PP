@@ -35,12 +35,14 @@ class RecordingViewController: UIViewController {
     @IBAction func recordVoice(_ sender: Any) {
         toggleButtonDisabled(recordButton)
         toggleButtonEnabled(stopRecordingButton)
+        toggleLabel(recordingLabel)
         audioRecorder.recordAudio(self)
     }
     
     @IBAction func stopRecording(_ sender: Any) {
         toggleButtonDisabled(stopRecordingButton)
         toggleButtonEnabled(recordButton)
+        toggleLabel(recordingLabel)
         audioRecorder.stopRecord(self)
     }
     
@@ -50,6 +52,14 @@ class RecordingViewController: UIViewController {
     }
     func toggleButtonDisabled(_ button: UIButton){
         button.isEnabled = false;
+    }
+    func toggleLabel(_ label: UILabel){
+        if(label.text == "Press Record"){
+            label.text = "Press Stop"
+        }else{
+            label.text = "Press Record"
+        }
+        
     }
 
     func segueToPlaySounds(){
