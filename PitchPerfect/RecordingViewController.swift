@@ -18,48 +18,27 @@ class RecordingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        toggleButtonDisabled(stopRecordingButton)
+        toggleRecording(startRecording: false)
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
     @IBAction func recordVoice(_ sender: Any) {
-        toggleButtonDisabled(recordButton)
-        toggleButtonEnabled(stopRecordingButton)
-        toggleLabel(recordingLabel)
-        audioRecorder.recordAudio(self)
+        toggleRecording(startRecording: true)
     }
     
     @IBAction func stopRecording(_ sender: Any) {
-        toggleButtonDisabled(stopRecordingButton)
-        toggleButtonEnabled(recordButton)
-        toggleLabel(recordingLabel)
-        audioRecorder.stopRecord(self)
+        toggleRecording(startRecording: false)
     }
     
-    
-    func toggleButtonEnabled(_ button: UIButton){
-        button.isEnabled = true;
-    }
-    func toggleButtonDisabled(_ button: UIButton){
-        button.isEnabled = false;
-    }
-    func toggleLabel(_ label: UILabel){
-        if(label.text == "Press Record"){
-            label.text = "Press Stop"
-        }else{
-            label.text = "Press Record"
-        }
+    func toggleRecording(startRecording: Bool) {
+        recordButton.isEnabled = !startRecording
+        stopRecordingButton.isEnabled = startRecording
+        recordingLabel.text = startRecording ? "Press Stop" : "Press Record"
         
+        if startRecording {
+            audioRecorder.recordAudio(self)
+        } else {
+            audioRecorder.stopRecord(self)
+        }
     }
 
     func segueToPlaySounds(){

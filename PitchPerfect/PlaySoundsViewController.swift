@@ -11,26 +11,33 @@ import UIKit
 class PlaySoundsViewController: UIViewController {
     @IBOutlet weak var slowButton: UIButton!
     @IBOutlet weak var fastButton: UIButton!
-    @IBOutlet weak var highPitch: UIButton!
-    @IBOutlet weak var lowPitch: UIButton!
+    @IBOutlet weak var highPitchButton: UIButton!
+    @IBOutlet weak var lowPitchButton: UIButton!
     @IBOutlet weak var echoButton: UIButton!
     @IBOutlet weak var reverbButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     
     var recordedAudioURL: URL!
     var audioPlayer = AudioPlayer()
+    
+    struct AudioProperties {
+        static let SlowRate: Float = 0.5
+        static let FastRate: Float = 1.5
+        static let HighPitch: Float = 1000
+        static let LowPitch: Float = -1000
+    }
   
     
     @IBAction func playSoundForButton(_ sender: UIButton){
         switch(AudioPlayer.ButtonType(rawValue: sender.tag)!) {
         case .slow:
-            playSound(rate: 0.5)
+            playSound(rate: AudioProperties.SlowRate)
         case .fast:
-            playSound(rate: 1.5)
+            playSound(rate: AudioProperties.FastRate)
         case .highPitch:
-            playSound(pitch: 1000)
+            playSound(pitch: AudioProperties.HighPitch)
         case .lowPitch:
-            playSound(pitch: -1000)
+            playSound(pitch: AudioProperties.LowPitch)
         case .echo:
             playSound(echo: true)
         case .reverb:

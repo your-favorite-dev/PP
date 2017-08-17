@@ -33,12 +33,13 @@ class AudioRecorder: NSObject, AVAudioRecorderDelegate {
     }
     
     func stopRecord(_ sender: RecordingViewController){
-        recorder.delegate = self
-        recorder.stop()
-        let audioSession = AVAudioSession.sharedInstance()
-        try! audioSession.setActive(false)
-        recorderController = sender
-        
+        if(recorder != nil){
+            recorder.delegate = self
+            recorder.stop()
+            let audioSession = AVAudioSession.sharedInstance()
+            try! audioSession.setActive(false)
+            recorderController = sender
+        }
     }
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {

@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class AudioPlayer: NSObject {
+class AudioPlayer {
     var audioFile:AVAudioFile!
     var audioEngine:AVAudioEngine!
     var audioPlayerNode: AVAudioPlayerNode!
