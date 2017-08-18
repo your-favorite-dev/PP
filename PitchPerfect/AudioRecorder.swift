@@ -13,6 +13,7 @@ import AVFoundation
 class AudioRecorder: NSObject, AVAudioRecorderDelegate {
     var recorder: AVAudioRecorder!
     var recorderController: RecordingViewController!
+    var alertUtil: Util!
     
 
     
@@ -46,10 +47,9 @@ class AudioRecorder: NSObject, AVAudioRecorderDelegate {
         if flag {
             recorderController.segueToPlaySounds()
         }else {
-            print("recording not successful")
+            alertUtil = Util()
+            alertUtil.showAlert(Alerts.AudioRecordingError, message: String(describing: "Recording did not finish"), controller: recorderController)
         }
     }
-    
-
     
 }

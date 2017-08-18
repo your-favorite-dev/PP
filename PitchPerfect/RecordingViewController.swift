@@ -15,10 +15,13 @@ class RecordingViewController: UIViewController {
     @IBOutlet weak var stopRecordingButton: UIButton!
     
     let audioRecorder = AudioRecorder()
+    let util = Util()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         toggleRecording(startRecording: false)
+        util.changeButtonAspect(buttons: recordButton,stopRecordingButton)
+        
     }
     
     @IBAction func recordVoice(_ sender: Any) {
@@ -55,5 +58,7 @@ class RecordingViewController: UIViewController {
         
         
     }
+    
+
 }
 

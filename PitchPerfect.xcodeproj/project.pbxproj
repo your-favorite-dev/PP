@@ -14,6 +14,7 @@
 		18428C771F30012100A1C7F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18428C751F30012100A1C7F3 /* LaunchScreen.storyboard */; };
 		187079011F3DBF7A00120089 /* PlaySoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187079001F3DBF7A00120089 /* PlaySoundsViewController.swift */; };
 		18BEE1241F3DAE330063CE4A /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BEE1221F3DAA120063CE4A /* AudioRecorder.swift */; };
+		18E726331F46313600039C2C /* AltertUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E726321F46313600039C2C /* AltertUtil.swift */; };
 		18FA090E1F429278002F23D6 /* playsoundsviewcontroller-audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FA090D1F429278002F23D6 /* playsoundsviewcontroller-audio.swift */; };
 		18FA09101F42931A002F23D6 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FA090F1F42931A002F23D6 /* AudioPlayer.swift */; };
 /* End PBXBuildFile section */
@@ -29,6 +30,7 @@
 		187079001F3DBF7A00120089 /* PlaySoundsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaySoundsViewController.swift; sourceTree = "<group>"; };
 		18A4D5691F379FA3000EA433 /* PitchPerfec copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "PitchPerfec copy-Info.plist"; path = "/Users/aromear/Developer/ios/PitchPerfect/PitchPerfec copy-Info.plist"; sourceTree = "<absolute>"; };
 		18BEE1221F3DAA120063CE4A /* AudioRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
+		18E726321F46313600039C2C /* AltertUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AltertUtil.swift; sourceTree = "<group>"; };
 		18FA090D1F429278002F23D6 /* playsoundsviewcontroller-audio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "playsoundsviewcontroller-audio.swift"; sourceTree = "<group>"; };
 		18FA090F1F42931A002F23D6 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,6 +73,7 @@
 				18428C731F30012100A1C7F3 /* Assets.xcassets */,
 				18428C751F30012100A1C7F3 /* LaunchScreen.storyboard */,
 				18428C781F30012100A1C7F3 /* Info.plist */,
+				18E726321F46313600039C2C /* AltertUtil.swift */,
 			);
 			path = PitchPerfect;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				18BEE1241F3DAE330063CE4A /* AudioRecorder.swift in Sources */,
 				18FA090E1F429278002F23D6 /* playsoundsviewcontroller-audio.swift in Sources */,
 				18428C6F1F30012100A1C7F3 /* RecordingViewController.swift in Sources */,
+				18E726331F46313600039C2C /* AltertUtil.swift in Sources */,
 				187079011F3DBF7A00120089 /* PlaySoundsViewController.swift in Sources */,
 				18428C6D1F30012100A1C7F3 /* AppDelegate.swift in Sources */,
 				18FA09101F42931A002F23D6 /* AudioPlayer.swift in Sources */,

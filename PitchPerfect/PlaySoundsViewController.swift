@@ -18,26 +18,27 @@ class PlaySoundsViewController: UIViewController {
     @IBOutlet weak var stopButton: UIButton!
     
     var recordedAudioURL: URL!
-    var audioPlayer = AudioPlayer()
+    let audioPlayer = AudioPlayer()
+    let util = Util()
     
     struct AudioProperties {
-        static let SlowRate: Float = 0.5
-        static let FastRate: Float = 1.5
-        static let HighPitch: Float = 1000
-        static let LowPitch: Float = -1000
+        static let slowRate: Float = 0.5
+        static let fastRate: Float = 1.5
+        static let highPitch: Float = 1000
+        static let lowPitch: Float = -1000
     }
   
     
     @IBAction func playSoundForButton(_ sender: UIButton){
         switch(AudioPlayer.ButtonType(rawValue: sender.tag)!) {
         case .slow:
-            playSound(rate: AudioProperties.SlowRate)
+            playSound(rate: AudioProperties.slowRate)
         case .fast:
-            playSound(rate: AudioProperties.FastRate)
+            playSound(rate: AudioProperties.fastRate)
         case .highPitch:
-            playSound(pitch: AudioProperties.HighPitch)
+            playSound(pitch: AudioProperties.highPitch)
         case .lowPitch:
-            playSound(pitch: AudioProperties.LowPitch)
+            playSound(pitch: AudioProperties.lowPitch)
         case .echo:
             playSound(echo: true)
         case .reverb:
@@ -54,10 +55,14 @@ class PlaySoundsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAudio()
+        util.changeButtonAspect(buttons: slowButton, fastButton,
+                                highPitchButton, lowPitchButton,
+                                echoButton, reverbButton,stopButton)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureUI(.notPlaying)
     }
+    
 
 }
