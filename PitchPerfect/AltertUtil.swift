@@ -34,6 +34,7 @@ class Util {
     func changeButtonAspect(buttons: UIButton...){
         for button in buttons {
             button.imageView?.contentMode = .scaleAspectFit
+            button.imageView?.isExclusiveTouch = true
         }
     }
 }

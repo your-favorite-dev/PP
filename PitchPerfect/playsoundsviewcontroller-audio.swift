@@ -11,7 +11,7 @@ import AVFoundation
 // MARK: - PlaySoundsViewController: AVAudioPlayerDelegate
 
 extension PlaySoundsViewController: AVAudioPlayerDelegate {
-
+    
     // MARK: PlayingState (raw values correspond to sender tags)
     
     enum PlayingState { case playing, notPlaying }
@@ -24,7 +24,7 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
             audioPlayer.audioFile = try AVAudioFile(forReading: recordedAudioURL as URL)
         } catch {
             util.showAlert(Alerts.AudioFileError, message: String(describing: error), controller: self)
-        }        
+        }
     }
     
     func playSound(rate: Float? = nil, pitch: Float? = nil, echo: Bool = false, reverb: Bool = false) {
@@ -33,8 +33,11 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
         audioPlayer.audioEngine = AVAudioEngine()
         
         // node for playing audio
+
         audioPlayer.audioPlayerNode = AVAudioPlayerNode()
         audioPlayer.audioEngine.attach(audioPlayer.audioPlayerNode)
+        
+        
         
         // node for adjusting rate/pitch
         let changeRatePitchNode = AVAudioUnitTimePitch()
@@ -110,7 +113,7 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
         }
         
         configureUI(.notPlaying)
-                        
+        
         if let audioEngine = audioPlayer.audioEngine {
             audioEngine.stop()
             audioEngine.reset()
@@ -126,7 +129,7 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
     }
     
     // MARK: UI Functions
-
+    
     func configureUI(_ playState: PlayingState) {
         switch(playState) {
         case .playing:
@@ -146,6 +149,6 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
         echoButton.isEnabled = enabled
         reverbButton.isEnabled = enabled
     }
-
-
+    
+    
 }
